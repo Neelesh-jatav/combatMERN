@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 const TopBar = ({ currentSection, setSection }) => {
-  const sections = ["HOME", "WEAPONS", "DOCUMENT", "LEGACY", "HEADLINES", "OTHER"];
+  const sections = ["HOME", "WEAPONS", "DOCUMENT", "LEGACY", "HEADLINES", "VigilaxAI", "OTHER"];
   const [show, setShow] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [showAuth, setShowAuth] = useState(false);

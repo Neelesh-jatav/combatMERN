@@ -1,24 +1,33 @@
 import React from "react";
 import sindoor from "../assets/sindoor.png";
+import targetmapping from "../assets/targetmapping.jpg";
+import jt from "../assets/jt.png";
+import dronestr from "../assets/drone str.png";
+import groundsweep from "../assets/groundsweep.png";
+import uupgrades from "../assets/uupgrades.png";
+import diiplomatic from "../assets/diplomatic.png";
+import crossborder from "../assets/cross border.png";
+import veterain from "../assets/veterain.png";
+import visuals from "../assets/visuals.png";
 
 const headlines = [
     {
-        img: "/images/headline1.jpg",
+        img: uupgrades,
         title: "Army Upgrades Precision Arsenal",
         desc: "Post-SINDOOR upgrades include smart bombs, drone-guided artillery, and high-res satellite coordination."
     },
     {
-        img: "/images/headline2.jpg",
+        img: diiplomatic,
         title: "Diplomatic Reactions",
         desc: "Nations call for restraint while acknowledging India’s right to self-defense."
     },
     {
-        img: "/images/headline3.jpg",
+        img: crossborder,
         title: "Cross-border Tensions Rise",
         desc: "Skirmishes reported at LOC after Operation SINDOOR; India maintains defensive posture."
     },
     {
-        img: "/images/headline4.jpg",
+        img: veterain,
         title: "Veteran Voices on SINDOOR",
         desc: "Military veterans call Operation SINDOOR 'a masterstroke of deterrence'."
     }
@@ -61,7 +70,7 @@ const Heading = () => {
                 </div>
                 <div className="md:w-1/2">
                     <img
-                        src="/images/strike-pears.jpg"
+                        src={visuals}
                         alt="Strike Operation Visual"
                         className="rounded-lg shadow"
                     />
@@ -72,7 +81,7 @@ const Heading = () => {
             <div className="flex flex-col md:flex-row gap-10 items-center mb-16">
                 <div className="md:w-1/2">
                     <img
-                        src="/images/watermelon.jpg"
+                        src={targetmapping}
                         alt="Target Mapping"
                         className="rounded-lg shadow"
                     />
@@ -93,9 +102,9 @@ const Heading = () => {
             <div className="grid md:grid-cols-3 gap-6 mb-16">
                 <div className="md:col-span-2">
                     <img
-                        src="/images/pear-main.jpg"
+                        src={jt}
                         alt="Drone Footage"
-                        className="rounded-lg mb-4"
+                        className="w-full h-64 object-cover rounded-lg shadow-lg mb-4 hover:scale-105 transition-transform duration-300"
                     />
                     <h3 className="font-semibold text-lg">Joint Tactical Command</h3>
                     <p className="text-sm text-gray-600">
@@ -105,13 +114,13 @@ const Heading = () => {
                 <div className="flex flex-col gap-6">
                     {[
                         {
-                            img: "/images/pear1.jpg",
+                            img: dronestr,
                             title: "Drone Strike",
                             desc: "Silent precision UAVs neutralized key bunkers before ground forces moved in.",
                             price: "Zero Indian casualties"
                         },
                         {
-                            img: "/images/mushroom.jpg",
+                            img: groundsweep,
                             title: "Ground Sweep",
                             desc: "Para SF units swept through 3 locations to clear remnants and gather intel.",
                             price: "Operation time: 5 hours"
@@ -121,7 +130,7 @@ const Heading = () => {
                             <img
                                 src={item.img}
                                 alt={item.title}
-                                className="rounded-lg mb-2"
+                                className="w-full h-32 object-cover rounded-lg shadow-md mb-2 hover:scale-105 transition-transform duration-300"
                             />
                             <h4 className="font-semibold">{item.title}</h4>
                             <p className="text-sm text-gray-600">{item.desc}</p>

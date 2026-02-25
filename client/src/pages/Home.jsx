@@ -10,13 +10,20 @@ import robust from "../assets/robust.png";
 import ins from "../assets/ins.jpg";
 import globmaster from "../assets/globemaster.jpg";
 import submarine from "../assets/submarine.jpg";
-import placeholder from "../assets/placeholder.jpg";
 import Weapon from "./Weapons";
 import ww1 from "../assets/ww1.jpg";
 import ww2 from "../assets/ww2.jpeg";
 import howitswork from "../assets/howitswork.jpg";
 import wikipedia from "../assets/wikipedia.png";
 import documentaries from "../assets/documentaries.png";
+import radar from "../assets/radar.png";
+import lockheed from "../assets/lockheed martin.jpg";
+import nasalogo from "../assets/nasalogo.jpg";
+import isrologo from "../assets/isrolgo.png";
+import spacexlogo from "../assets/spacexlogo.png";
+import rafellogo from "../assets/rafellogo.png";
+import raytechlogo from "../assets/raytechlogo.png";
+import drdologo from "../assets/drdologo.jpg";
 import Heading from "./Headlines";
 import StrategicSolutions from "./idea.jsx";
 
@@ -176,52 +183,6 @@ const Home = () => {
                   </p>
                 </div>
 
-              </div>
-            </section>
-
-
-            {/* Comments Section */}
-            <section className="py-12">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">Comments</h2>
-              <div className="grid md:grid-cols-3 gap-6">
-                {[
-                  {
-                    quote: "“A terrific piece of praise”",
-                    name: "Name",
-                    description: "Description",
-                    avatar: "/path/to/avatar1.png", // Replace with actual image path
-                  },
-                  {
-                    quote: "“A fantastic bit of feedback”",
-                    name: "Name",
-                    description: "Description",
-                    avatar: "/path/to/avatar1.png", // Replace with actual image path
-                  },
-                  {
-                    quote: "“A genuinely glowing review”",
-                    name: "Name",
-                    description: "Description",
-                    avatar: { placeholder }, // Replace with actual image path
-                  },
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className="border rounded-xl p-6 shadow-sm bg-white"
-                  >
-                    <p className="text-lg font-medium mb-4">{item.quote}</p>
-                    <div className="flex items-center gap-3">
-                      <img
-                        src={item.avatar}
-                        alt={item.name}
-                        className="w-10 h-10 rounded-full object-cover"
-                      />
-                      <div>
-                        <p className="font-semibold text-sm">{item.name}</p>
-                        <p className="text-gray-500 text-sm">{item.description}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
               </div>
             </section>
 
@@ -418,6 +379,48 @@ const Home = () => {
           <Heading/>
         )}
 
+        {section === "VigilaxAI" && (
+          <section className="py-10 px-6 md:px-16 bg-white text-gray-900">
+            <div className="max-w-5xl mx-auto border border-gray-200 rounded-2xl shadow-sm p-8 md:p-10">
+              <h1 className="text-4xl font-bold mb-3">VigilaxAI</h1>
+              <p className="text-lg text-gray-600 mb-6">AI-Powered Defense Intelligence Platform</p>
+
+              <p className="text-gray-700 mb-6 leading-relaxed">
+                Explore tactical insights, rapid threat analysis, and mission-ready intelligence workflows powered by VigilaxAI.
+              </p>
+
+              <div className="flex flex-wrap gap-4 mb-8">
+                <a
+                  href="https://vigilaxai.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-3 bg-black text-white rounded-lg hover:bg-gray-800 transition"
+                >
+                  Open VigilaxAI
+                </a>
+                <a
+                  href="https://vigilaxai.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center px-6 py-3 border border-gray-400 rounded-lg hover:bg-gray-100 transition"
+                >
+                  Visit Live Site
+                </a>
+              </div>
+
+              <div className="w-full h-[500px] rounded-xl overflow-hidden border border-gray-200">
+                <iframe
+                  src="https://vigilaxai.onrender.com/"
+                  title="VigilaxAI Live Preview"
+                  width="100%"
+                  height="100%"
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </section>
+        )}
+
         {section === "OTHER" && (
           <section className="px-6 md:px-20 py-12 bg-white text-gray-900 space-y-20">
       
@@ -429,12 +432,19 @@ const Home = () => {
             Radar (Radio Detection and Ranging) systems are essential for early warning, surveillance, and target tracking. They help detect aircraft, ships, and missiles from great distances, forming the backbone of modern defense.
           </p>
           <div className="space-x-4">
-            <button className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition">Explore Systems</button>
+            <a
+              href="https://www.flightradar24.com/24.77,75.16/7"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition"
+            >
+              Explore Systems
+            </a>
             <button className="px-4 py-2 border border-gray-400 rounded hover:bg-gray-100 transition">Live Demo</button>
           </div>
         </div>
         <div className="md:w-1/2">
-          <img src="/images/radar.jpg" alt="Radar System" className="rounded-lg shadow w-full" />
+          <img src={radar} alt="Radar System" className="w-full h-96 object-contain " />
         </div>
       </div>
 
@@ -453,7 +463,7 @@ const Home = () => {
           </div>
         </div>
         <div className="md:w-1/2">
-          <img src="/images/lockheed.jpg" alt="Lockheed Martin" className="rounded-lg shadow w-full" />
+          <img src={lockheed} alt="Lockheed Martin" className="rounded-lg shadow w-full" />
         </div>
       </div>
 
@@ -463,7 +473,7 @@ const Home = () => {
         <div className="flex flex-col md:flex-row gap-10">
           {/* NASA Block */}
           <div className="md:w-1/2">
-            <img src="/images/nasa.jpg" alt="NASA" className="rounded-lg shadow mb-3" />
+            <img src={nasalogo} alt="NASA" className="w-full h-64 object-contain rounded-lg shadow-lg hover:scale-105 transition-transform duration-300 mb-4" />
             <h3 className="text-lg font-semibold">NASA</h3>
             <p className="text-gray-700">
               NASA plays a critical role in space surveillance and missile early warning systems. It collaborates with defense sectors on satellite tracking, communication, and advanced propulsion.
@@ -473,14 +483,14 @@ const Home = () => {
           {/* ISRO & SpaceX */}
           <div className="md:w-1/2 flex flex-col gap-6">
             <div>
-              <img src="/images/isro.jpg" alt="ISRO" className="rounded-lg shadow mb-2" />
+              <img src={isrologo} alt="ISRO" className="w-full h-40 object-contain rounded-lg shadow-md hover:scale-105 transition-transform duration-300 mb-2" />
               <h3 className="font-semibold">ISRO</h3>
               <p className="text-sm text-gray-700">
                 The Indian Space Research Organisation supports strategic defense with satellite imaging, communication and launches for DRDO missions.
               </p>
             </div>
             <div>
-              <img src="/images/spacex.jpg" alt="SpaceX" className="rounded-lg shadow mb-2" />
+              <img src={spacexlogo} alt="SpaceX" className="w-full h-40 object-cover rounded-lg shadow-md hover:scale-105 transition-transform duration-300 mb-2" />
               <h3 className="font-semibold">SpaceX</h3>
               <p className="text-sm text-gray-700">
                 SpaceX’s Starlink and Falcon series enhance real-time data transfer, with global implications for defense networking and space-based ISR.
@@ -498,21 +508,21 @@ const Home = () => {
             {
               name: "Rafael Advanced Defense",
               desc: "Israeli defense company known for Iron Dome and Spike missile systems.",
-              img: "/images/rafael.jpg"
+              img: rafellogo
             },
             {
               name: "Raytheon Technologies",
               desc: "US-based firm producing Patriot missiles and advanced radar tech.",
-              img: "/images/raytheon.jpg"
+              img: raytechlogo
             },
             {
               name: "DRDO (India)",
               desc: "India’s premier research and development agency for defense innovations.",
-              img: "/images/drdo.jpg"
+              img: drdologo
             }
           ].map((item, index) => (
             <div key={index} className="hover:shadow-xl transition border rounded-lg overflow-hidden">
-              <img src={item.img} alt={item.name} className="h-40 w-full object-cover" />
+              <img src={item.img} alt={item.name} className="h-40 w-full object-contain" />
               <div className="p-4">
                 <h4 className="font-semibold text-lg mb-1">{item.name}</h4>
                 <p className="text-sm text-gray-600">{item.desc}</p>
@@ -530,7 +540,7 @@ const Home = () => {
         </p>
         <div className="w-full h-[400px] rounded-lg overflow-hidden shadow">
           <iframe
-            src="https://spotthestation.nasa.gov/tracking_map.cfm"
+            src="https://www.n2yo.com/?s=25544#google_vignette"
             width="100%"
             height="100%"
             title="ISS Live Tracker"

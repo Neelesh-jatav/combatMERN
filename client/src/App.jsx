@@ -25,12 +25,9 @@ const App = () => {
   useEffect(() => {
     dispatch(getUser());
     dispatch(fetchAllWeapons());
-    // if(isAuthenticated && user?.role ==="User"){
-      // dispatch(fetchUserBorrowedWeapons());
-    // }
+    
     if(isAuthenticated && user?.role ==="Admin"){
       dispatch(fetchAllUsers());
-      // dispatch(fetchAllBorrowedWeapons());
     }
   },[isAuthenticated]);
 
@@ -44,7 +41,7 @@ const App = () => {
         <Route path="/otp-verification/:email" element={<OTP />} />
         <Route path="/password/reset/:token" element={<ResetPassword />} />
 
-        {/* <Route path="/weapon" element={<Weapon />} /> */}
+        <Route path="/weapon" element={<Weapon />} />
         <Route path="/profile" element={<Profile />} /> 
         <Route path="/adminprofile" element={<AdminProfile />} />
         <Route path="/authmodal" element={<AuthModal />} />
