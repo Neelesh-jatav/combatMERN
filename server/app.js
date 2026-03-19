@@ -2,6 +2,7 @@ import express from "express";
 import { config } from "dotenv";
 import cookieParser from "cookie-parser";
 import cors from "cors";
+import { existsSync } from "fs";
 import { connectDB } from "./database/db.js";
 import { errorMiddlewares } from "./middlewares/errorMiddlewares.js";
 import authRouter from "./routes/authRouter.js";
@@ -15,7 +16,10 @@ import { removeUnverifiedAccounts } from "./services/removeUnverifiedAccounts.js
 
 export const app = express();
 
-config({path:"./config/config.env"}); 
+const envPath = process.env.DOTENV_PATH
+    || (existsSync("/etc/secrets/config.env") ? "/etc/secrets/config.env" : "./config/config.env");
+
+config({ path: envPath }); 
 
 const allowedOrigins = (process.env.FRONTEND_URL || "")
     .split(",")
