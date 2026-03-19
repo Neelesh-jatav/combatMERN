@@ -19,6 +19,7 @@ import cyber from "../assets/cyber.png";
 import { toggleAddWeaponPopup, toggleDeleteWeaponPopup } from "../store/slices/popUpSlice";
 import AddWeapon from "./AddWeapons";
 import DeleteWeapon from "./DeleteWeapon";
+import { buildApiUrl } from "../utils/api";
 
 const staticCategories = [
   { title: "Rifle", image: rifle, desc: "Precision firearms for ground infantry units." },
@@ -57,7 +58,7 @@ const Weapon = () => {
   useEffect(() => {
     const fetchWeapons = async () => {
       try {
-        const { data } = await axios.get("http://localhost:4000/api/v1/weapon/all");
+        const { data } = await axios.get(buildApiUrl("/api/v1/weapon/all"));
         const weapons = data.weapons || [];
 
         const groupedWeapons = {};

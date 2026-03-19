@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { toggleAddWeaponPopup } from "./popUpSlice";
+import { buildApiUrl } from "../../utils/api";
 
 // Initial State
 const initialState = {
@@ -69,7 +70,7 @@ export const {
 export const fetchAllWeapons = () => async (dispatch) => {
   dispatch(fetchWeaponsRequest());
   try {
-    const { data } = await axios.get("/api/v1/weapon/all");
+    const { data } = await axios.get(buildApiUrl("/api/v1/weapon/all"));
     dispatch(fetchWeaponsSuccess(data.weapons));
   } catch (error) {
     dispatch(fetchWeaponsFailed(error.response?.data?.message || "Failed to fetch weapons"));
@@ -80,7 +81,7 @@ export const fetchAllWeapons = () => async (dispatch) => {
 export const addWeapon = (formData) => async (dispatch) => {
   dispatch(addWeaponRequest());
   try {
-    const { data } = await axios.post("http://localhost:4000/api/v1/weapon/admin/add", formData, {
+    const { data } = await axios.post(buildApiUrl("/api/v1/weapon/admin/add"), formData, {
       headers: { "Content-Type": "multipart/form-data" },
       withCredentials: true,
     });

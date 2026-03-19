@@ -17,8 +17,13 @@ export const app = express();
 
 config({path:"./config/config.env"}); 
 
+const allowedOrigins = (process.env.FRONTEND_URL || "")
+    .split(",")
+    .map((origin) => origin.trim())
+    .filter(Boolean);
+
 app.use(cors({
-    origin: [process.env.FRONTEND_URL],
+    origin: allowedOrigins.length ? allowedOrigins : true,
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
 }));

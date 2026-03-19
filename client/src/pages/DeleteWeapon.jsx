@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { buildApiUrl } from "../utils/api";
 
 const DeleteWeapon = () => {
   const { user } = useSelector((state) => state.auth);
@@ -28,7 +29,7 @@ const DeleteWeapon = () => {
     }
     setLoading(true);
     axios
-      .get("http://localhost:4000/api/v1/weapon/all", { withCredentials: true })
+      .get(buildApiUrl("/api/v1/weapon/all"), { withCredentials: true })
       .then((res) => {
         const allWeapons = res.data.weapons || [];
         const filtered = allWeapons.filter(
@@ -59,7 +60,7 @@ const DeleteWeapon = () => {
     setMessage("");
     try {
       await axios.delete(
-        `http://localhost:4000/api/v1/weapon/admin/delete/${selectedWeaponId}`,
+        buildApiUrl(`/api/v1/weapon/admin/delete/${selectedWeaponId}`),
         { withCredentials: true }
       );
       setMessage("Weapon deleted successfully.");

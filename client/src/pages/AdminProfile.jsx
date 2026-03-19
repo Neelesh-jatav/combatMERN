@@ -4,6 +4,7 @@ import { logout, resetAuthSlice } from "../store/slices/authSlice";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { buildApiUrl } from "../utils/api";
 
 const AdminProfile = () => {
   const dispatch = useDispatch();
@@ -82,7 +83,7 @@ const AdminProfile = () => {
       if (addAdminForm.avatar) formData.append("avatar", addAdminForm.avatar);
 
       await axios.post(
-        "/api/v1/user/admin/register",
+        buildApiUrl("/api/v1/user/add/new-admin"),
         formData,
         {
           headers: { "Content-Type": "multipart/form-data" },

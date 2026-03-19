@@ -1,6 +1,7 @@
 // src/store/slices/authSlice.js
 import { createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
+import { buildApiUrl } from "../../utils/api";
 
 const initialState = {
   loading: false,
@@ -189,7 +190,7 @@ export const register = (data) => async (dispatch) => {
   dispatch(registerRequest());
   try {
     const res = await axios.post(
-      "http://localhost:4000/api/v1/auth/register",
+      buildApiUrl("/api/v1/auth/register"),
       data,
       {
         withCredentials: true,
@@ -207,7 +208,7 @@ export const otpVerification = (email, otp) => async (dispatch) => {
   dispatch(otpVerificationRequest());
   try {
     const res = await axios.post(
-      "http://localhost:4000/api/v1/auth/verify-otp",
+      buildApiUrl("/api/v1/auth/verify-otp"),
       { email, otp },
       {
         withCredentials: true,
@@ -225,7 +226,7 @@ export const login = (data) => async (dispatch) => {
   dispatch(loginRequest());
   try {
     const res = await axios.post(
-      "http://localhost:4000/api/v1/auth/login",
+      buildApiUrl("/api/v1/auth/login"),
       data,
       {
         withCredentials: true,
@@ -242,7 +243,7 @@ export const login = (data) => async (dispatch) => {
 export const logout = () => async (dispatch) => {
   dispatch(logoutRequest());
   try {
-    await axios.get("http://localhost:4000/api/v1/auth/logout", {
+    await axios.get(buildApiUrl("/api/v1/auth/logout"), {
       withCredentials: true,
     });
     dispatch(logoutSuccess("Logout successful"));
@@ -255,7 +256,7 @@ export const logout = () => async (dispatch) => {
 export const getUser = () => async (dispatch) => {
   dispatch(getUserRequest());
   try {
-    const res = await axios.get("http://localhost:4000/api/v1/auth/me", {
+    const res = await axios.get(buildApiUrl("/api/v1/auth/me"), {
       withCredentials: true,
     });
     dispatch(getUserSuccess(res.data));
@@ -269,7 +270,7 @@ export const forgotPassword = (email) => async (dispatch) => {
   dispatch(forgotPasswordRequest());
   try {
     const res = await axios.post(
-      "http://localhost:4000/api/v1/auth/password/forgot",
+      buildApiUrl("/api/v1/auth/password/forgot"),
       { email },
       {
         withCredentials: true,
@@ -287,7 +288,7 @@ export const resetPassword = (data, token) => async(dispatch)=>{
     dispatch(authSlice.actions.resetPasswordRequest());
     await axios
     .put(
-        `http://localhost:4000/api/v1/auth/password/reset/${token}`, 
+      buildApiUrl(`/api/v1/auth/password/reset/${token}`), 
         data, 
         {
         withCredentials: true,
@@ -306,7 +307,7 @@ export const updatePassword = (data) => async (dispatch) => {
   dispatch(updatePasswordRequest());
   try {
     const res = await axios.put(
-      "http://localhost:4000/api/v1/auth/password/update",
+      buildApiUrl("/api/v1/auth/password/update"),
       data,
       {
         withCredentials: true,
